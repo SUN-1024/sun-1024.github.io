@@ -374,11 +374,16 @@
         "corresponding": true
       }
     ],
-    "venue": "2024 IEEE Cyber Science and Technology Congress (CyberSciTech)",
+    "venue": "IEEE Cyber Science and Technology Congress (CyberSciTech)",
     "date": "2024-11-05",
     "doi": "10.1109/cyberscitech64112.2024.00085",
     "type": "conference",
-    "status": "published"
+    "status": "published",
+    "conference_award": "IEEE Best Student Paper Award",
+    "award_url": "https://xxgc.hmc.edu.cn/sy/xydt/202603/t20260327_7160380_ext.shtml",
+    "conference_summary": [
+      "Uses positional information from images and text for radiology report generation."
+    ]
   },
   {
     "title": "Robust detection of infectious disease, autoimmunity, and cancer from the paratope networks of adaptive immune receptors",
@@ -865,5 +870,66 @@
     ],
     "code": "",
     "cc_by": false
+  },
+  {
+    "title": "Retrospective State Fusion with Query-Guided Weighting for Long-Range Epidemic Forecasting",
+    "authors": [
+      {
+        "name": "Qi Yuan",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Han Shu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Yizhi Pan",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Tianshuo Li",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Zidan Zhu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Pengpeng Zhang",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Guanqun Sun",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Junyi Xin",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Kai Li",
+        "equal": false,
+        "corresponding": false
+      }
+    ],
+    "venue": "IEEE Cyber Science and Technology Congress (CyberSciTech)",
+    "date": "2025-10-21",
+    "doi": "10.1109/cyberscitech68397.2025.00106",
+    "type": "conference",
+    "status": "published",
+    "conference_award": "IEEE Distinguished Workshop Paper Award",
+    "award_url": "https://xxgc.hmc.edu.cn/xkky/kycg/202604/t20260424_7350002_ext.shtml",
+    "conference_summary": [
+      "RAM-GNN uses retrospective attention to combine historical states for long-range epidemic forecasting.",
+      "A dual-stream spatiotemporal graph network models temporal and spatial patterns in disease dynamics."
+    ]
   }
 ]
