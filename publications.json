@@ -1,0 +1,138 @@
+[
+  {
+    "title": "Lesion-aware visio-linguistic context regularization for radiology report generation",
+    "authors": "Guanqun Sun; Yunbin Tu; Yingying Zhu; Liang Wan; Qun Jin; Jianhua Ma",
+    "venue": "Medical Image Analysis",
+    "date": "2026-09-07",
+    "doi": "10.1016/j.media.2026.104302",
+    "type": "journal"
+  },
+  {
+    "title": "RADAR: A Difference-Aware Retrieval with Organ-Level Alignment for Change Radiology Report Generation",
+    "authors": "Yizhi Pan; Guanqun Sun; Yingying Zhu; Haitao Jiang; Han Shu; Le Minh Nguyen",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "date": "2026-07-13",
+    "doi": "10.1109/tmi.2026.3712240",
+    "type": "journal"
+  },
+  {
+    "title": "Gradient-guided boundary-aware selective scanning with multi-scale context aggregation for plant lesion segmentation",
+    "authors": "Guanqun Sun; Tianshuo Li; Yizhi Pan; Zidan Zhu; Tianhua Yang; Feihe Shao; Jia Guo; Junyi Xin",
+    "venue": "Frontiers in Plant Science",
+    "date": "2025-12-23",
+    "doi": "10.3389/fpls.2025.1727075",
+    "type": "journal"
+  },
+  {
+    "title": "Weight-aware tasks for evaluating knowledge graph embeddings",
+    "authors": "Wei-Kun Kong; Xin Liu; Teeradaj Racharak; Guanqun Sun; Qiang Ma; Le-Minh Nguyen",
+    "venue": "Knowledge-Based Systems",
+    "date": "2025-06",
+    "doi": "10.1016/j.knosys.2025.113596",
+    "type": "journal"
+  },
+  {
+    "title": "A new method for identifying and evaluating depressive disorders in young people based on cognitive neurocomputing: an exploratory study",
+    "authors": "Jiakang Liu; Kai Li; Shuwu Li; Shangjun Liu; Chen Wang; Shouqiang Huang; Yuting Tu; Bo Wang; Pengpeng Zhang; Yuntian Luo; Guanqun Sun; Tong Chen",
+    "venue": "Frontiers in Computational Neuroscience",
+    "date": "2025-02-25",
+    "doi": "10.3389/fncom.2025.1555416",
+    "type": "journal"
+  },
+  {
+    "title": "A mutual inclusion mechanism for precise boundary segmentation in medical images",
+    "authors": "Yizhi Pan; Junyi Xin; Tianhua Yang; Siqi Li; Le-Minh Nguyen; Teeradaj Racharak; Kai Li; Guanqun Sun",
+    "venue": "Frontiers in Bioengineering and Biotechnology",
+    "date": "2024-12-24",
+    "doi": "10.3389/fbioe.2024.1504249",
+    "type": "journal"
+  },
+  {
+    "title": "Sequence-Integrated Radiology Report Generation Leveraging Positional Encoding for Text and Images",
+    "authors": "Yizhi Pan; Kai Li; Jinghao Wu; Han Shu; Feihe Shao; Junyi Xin; Guanqun Sun",
+    "venue": "2024 IEEE Cyber Science and Technology Congress (CyberSciTech)",
+    "date": "2024-11-05",
+    "doi": "10.1109/cyberscitech64112.2024.00085",
+    "type": "conference"
+  },
+  {
+    "title": "Robust detection of infectious disease, autoimmunity, and cancer from the paratope networks of adaptive immune receptors",
+    "authors": "Zichang Xu; Hendra S Ismanto; Dianita S Saputri; Soichiro Haruna; Guanqun Sun; Jan Wilamowski; Shunsuke Teraguchi; Ayan Sengupta; Songling Li; Daron M Standley",
+    "venue": "Briefings in Bioinformatics",
+    "date": "2024-09-03",
+    "doi": "10.1093/bib/bbae431",
+    "type": "journal"
+  },
+  {
+    "title": "Modeling epidemic dynamics using Graph Attention based Spatial Temporal networks",
+    "authors": "Xiaofeng Zhu; Yi Zhang; Haoru Ying; Huanning Chi; Guanqun Sun; Lingxia Zeng",
+    "venue": "PLOS ONE",
+    "date": "2024-07-15",
+    "doi": "10.1371/journal.pone.0307159",
+    "type": "journal"
+  },
+  {
+    "title": "DA-TransUNet: integrating spatial and channel dual attention with transformer U-net for medical image segmentation",
+    "authors": "Guanqun Sun; Yizhi Pan; Weikun Kong; Zichang Xu; Jianhua Ma; Teeradaj Racharak; Le-Minh Nguyen; Junyi Xin",
+    "venue": "Frontiers in Bioengineering and Biotechnology",
+    "date": "2024-05-16",
+    "doi": "10.3389/fbioe.2024.1398237",
+    "type": "journal"
+  },
+  {
+    "title": "FKD-Med: Privacy-Aware, Communication-Optimized Medical Image Segmentation via Federated Learning and Model Lightweighting Through Knowledge Distillation",
+    "authors": "Guanqun Sun; Han Shu; Feihe Shao; Teeradaj Racharak; Weikun Kong; Yizhi Pan; Jingjing Dong; Shuang Wang; Le-Minh Nguyen; Junyi Xin",
+    "venue": "IEEE Access",
+    "date": "2024-03-01",
+    "doi": "10.1109/access.2024.3372394",
+    "type": "journal"
+  },
+  {
+    "title": "WeExt: A Framework of Extending Deterministic Knowledge Graph Embedding Models for Embedding Weighted Knowledge Graphs",
+    "authors": "Kong Wei Kun; Xin Liu; Teeradaj Racharak; Guanqun Sun; Jianan Chen; Qiang Ma; Le-Minh Nguyen",
+    "venue": "IEEE Access",
+    "date": "2023-05-15",
+    "doi": "10.1109/access.2023.3276319",
+    "type": "journal"
+  },
+  {
+    "title": "MLDA-Unet:Multi Level Dual Attention Unet for Polyp Segmentation",
+    "authors": "Yuming Cai; Haotian Li; Junyi Xin; Guanqun Sun",
+    "venue": "2022 16th ICME International Conference on Complex Medical Engineering (CME)",
+    "date": "2022-11-04",
+    "doi": "10.1109/cme55444.2022.10063321",
+    "type": "conference"
+  },
+  {
+    "title": "Learn from Each Other: Comparison and Fusion for Medical Segmentation Loss",
+    "authors": "Junyi Xin; Guanqun Sun",
+    "venue": "2021 7th International Conference on Computer and Communications (ICCC)",
+    "date": "2021-12-10",
+    "doi": "10.1109/iccc54389.2021.9674501",
+    "type": "conference"
+  },
+  {
+    "title": "A personal character model of affect, behavior and cognition for individual-like research",
+    "authors": "Ao Guo; Jianhua Ma; Guanqun Sun; Shunxiang Tan",
+    "venue": "Computers & Electrical Engineering",
+    "date": "2019-12-27",
+    "doi": "10.1016/j.compeleceng.2019.106544",
+    "type": "journal"
+  },
+  {
+    "title": "From affect, behavior, and cognition to personality: an integrated personal character model for individual-like intelligent artifacts",
+    "authors": "Ao Guo; Jianhua Ma; Shunxiang Tan; Guanqun Sun",
+    "venue": "World Wide Web",
+    "date": "2019-08-31",
+    "doi": "10.1007/s11280-019-00713-w",
+    "type": "journal"
+  },
+  {
+    "title": "Personal Trait Analysis Using Word2vec Based on User-Generated Text",
+    "authors": "Guanqun Sun; Ao Guo; Jianhua Ma; Jianguo Wei",
+    "venue": "2019 IEEE International Conference on Ubiquitous Intelligence and Computing (UIC)",
+    "date": "2019-08",
+    "doi": "10.1109/smartworld-uic-atc-scalcom-iop-sci.2019.00213",
+    "type": "conference"
+  }
+]
