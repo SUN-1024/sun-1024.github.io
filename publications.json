@@ -154,7 +154,8 @@
       "A gradient-guided boundary predictor directs Mamba-based selective scanning towards uncertain lesion boundaries."
     ],
     "code": "",
-    "cc_by": true
+    "cc_by": true,
+    "recognition": "ESI Highly Cited Paper"
   },
   {
     "title": "Weight-aware tasks for evaluating knowledge graph embeddings",
@@ -545,7 +546,8 @@
       "Dual attention in the skip connections models spatial and channel features to refine medical image segmentation."
     ],
     "code": "https://github.com/SUN-1024/DA-TransUnet",
-    "cc_by": true
+    "cc_by": true,
+    "recognition": "ESI Highly Cited Paper"
   },
   {
     "title": "FKD-Med: Privacy-Aware, Communication-Optimized Medical Image Segmentation via Federated Learning and Model Lightweighting Through Knowledge Distillation",

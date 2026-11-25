@@ -40,7 +40,8 @@ def card(p):
     points=''.join('<li>'+e(x)+'</li>' for x in p['summary'])
     cc=' · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>' if p.get('cc_by') else ''
     credit='Figure from the accepted manuscript' if p['status']=='accepted' else 'Figure from the paper'
-    return f'''<div class="paper-box"><div class="paper-box-image"><div><div class="badge">{e(p['badge'])}</div><a href="{src}" target="_blank" rel="noopener" aria-label="Open a larger figure for {title}"><img src="{src}" alt="Research figure for {title}" loading="lazy"></a><div class="figure-credit">{credit}{cc}</div></div></div><div class="paper-box-text"><p>{title_html} {links(p)}</p><p>{authors_html(p['authors'])}</p><p class="publication-venue">{venue(p)}</p><ul>{points}</ul></div></div>'''
+    award=f'<p><span class="award-tag">★ {e(p["recognition"])}</span></p>' if p.get('recognition') else ''
+    return f'''<div class="paper-box"><div class="paper-box-image"><div><div class="badge">{e(p['badge'])}</div><a href="{src}" target="_blank" rel="noopener" aria-label="Open a larger figure for {title}"><img src="{src}" alt="Research figure for {title}" loading="lazy"></a><div class="figure-credit">{credit}{cc}</div></div></div><div class="paper-box-text"><p>{title_html} {links(p)}</p>{award}<p>{authors_html(p['authors'])}</p><p class="publication-venue">{venue(p)}</p><ul>{points}</ul></div></div>'''
 
 def compact(p):
     title=e(p['title']); anchor=f'<a href="https://doi.org/{e(p["doi"],quote=True)}">{title}</a>' if p['doi'] else title
