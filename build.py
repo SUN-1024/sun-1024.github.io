@@ -22,8 +22,6 @@ def links(p):
     parts=[]
     if p['doi']:
         parts.append(f'<a href="https://doi.org/{e(p["doi"], quote=True)}">Paper</a>')
-    if p.get('code'):
-        parts.append(f'<a href="{e(p["code"], quote=True)}">Code</a>')
     if p['doi'].lower() == '10.1016/j.media.2026.104302':
         parts.append('<a href="https://doi.org/10.1016/j.media.2026.104383">Correction</a>')
     return ' '.join('['+part+']' for part in parts)
