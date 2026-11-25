@@ -146,7 +146,7 @@
     "doi": "10.3389/fpls.2025.1727075",
     "type": "journal",
     "status": "published",
-    "topic": "other",
+    "topic": "segmentation",
     "badge": "Front. Plant Sci. 2025",
     "figure": "assets/papers/garden.png",
     "summary": [
@@ -325,7 +325,7 @@
     "doi": "10.3389/fbioe.2024.1504249",
     "type": "journal",
     "status": "published",
-    "topic": "segmentation",
+    "topic": "other",
     "badge": "Front. Bioeng. Biotechnol. 2024",
     "figure": "assets/papers/mipc-net.png",
     "summary": [

@@ -47,9 +47,9 @@ def compact(p):
     title=e(p['title']); anchor=f'<a href="https://doi.org/{e(p["doi"],quote=True)}">{title}</a>' if p['doi'] else title
     return f'<li>{anchor}. {authors_html(p["authors"])}. {venue(p)}.</li>'
 
-order={'vision':['clamp','lavic','radar'],'segmentation':['da-transunet','mipc-net','mlda-unet'],'privacy':['fkd-med'],'other':['garden','gast','cognitive']}
+order={'vision':['clamp','lavic','radar'],'segmentation':['da-transunet','garden','mlda-unet'],'privacy':['fkd-med'],'other':['mipc-net','gast','cognitive']}
 groups=[]
-heads={'vision':'🩻 Medical Vision–Language Learning','segmentation':'🩺 Medical Image Segmentation','privacy':'🔐 Federated and Privacy-Aware Learning','other':'🌿 Health and Other Imaging Applications'}
+heads={'vision':'🩻 Medical Vision–Language Learning','segmentation':'🩺 Medical and Plant Image Segmentation','privacy':'🔐 Federated and Privacy-Aware Learning','other':'🧠 Other Health and AI Applications'}
 for topic,names in order.items():
     entries=[next(p for p in publications if p.get('figure','').endswith('/'+name+'.png')) for name in names]
     groups.append(f'<h2>{heads[topic]}</h2>'+''.join(card(p) for p in entries))
