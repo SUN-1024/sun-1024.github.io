@@ -910,17 +910,17 @@
       {
         "name": "Guanqun Sun",
         "equal": false,
-        "corresponding": false
+        "corresponding": true
       },
       {
         "name": "Junyi Xin",
         "equal": false,
-        "corresponding": false
+        "corresponding": true
       },
       {
         "name": "Kai Li",
         "equal": false,
-        "corresponding": false
+        "corresponding": true
       }
     ],
     "venue": "IEEE Cyber Science and Technology Congress (CyberSciTech)",
