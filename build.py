@@ -46,8 +46,12 @@ def conference_card(p):
     doi=e(p['doi'],quote=True)
     award=e(p['conference_award'])
     award_url=e(p['award_url'],quote=True)
+    src=e(p['figure'],quote=True)
+    credit=e(p['figure_credit'])
+    if p.get('figure_credit_url'):
+        credit=f'<a href="{e(p["figure_credit_url"],quote=True)}">{credit}</a>'
     points=''.join('<li>'+e(point)+'</li>' for point in p.get('conference_summary',[]))
-    return f"""<article class="conference-paper"><p><a href="https://doi.org/{doi}">{title}</a> [<a href="https://doi.org/{doi}">Paper</a>]</p><p>{authors_html(p['authors'])}</p><p class="publication-venue">{venue(p)}</p><p><a class="award-tag" href="{award_url}" title="Award details from Hangzhou Medical College">★ {award} ↗</a></p><ul>{points}</ul></article>"""
+    return f"""<article class="paper-box conference-paper"><div class="paper-box-image"><div><div class="badge">{e(p['badge'])}</div><a href="{src}" target="_blank" rel="noopener" aria-label="Open a larger figure for {title}"><img src="{src}" alt="Model diagram for {title}" loading="lazy"></a><div class="figure-credit">{credit}</div></div></div><div class="paper-box-text"><p><a href="https://doi.org/{doi}">{title}</a> [<a href="https://doi.org/{doi}">Paper</a>]</p><p>{authors_html(p['authors'])}</p><p class="publication-venue">{venue(p)}</p><p><a class="award-tag" href="{award_url}" title="Award details from Hangzhou Medical College">★ {award} ↗</a></p><ul>{points}</ul></div></article>"""
 
 def compact(p):
     title=e(p['title']); anchor=f'<a href="https://doi.org/{e(p["doi"],quote=True)}">{title}</a>' if p['doi'] else title
@@ -82,4 +86,5 @@ content='''<!doctype html>
 <footer class="site-footer">© 2026 Guanqun Sun · Style based on <a href="https://github.com/RayeRen/acad-homepage.github.io">AcadHomepage</a>.</footer>
 </section></div></article></main></body></html>'''
 (ROOT/'index.html').write_text(content,encoding='utf-8')
-print(f'Built homepage: {len(publications)} papers, {len(featured_figures)} illustrated, {len(conference_awards)} award-winning conference papers, {len(other)} additional')
+illustrated_count=len(featured_figures)+sum(bool(p.get('figure')) for p in conference_awards)
+print(f'Built homepage: {len(publications)} papers, {illustrated_count} illustrated, {len(conference_awards)} award-winning conference papers, {len(other)} additional')

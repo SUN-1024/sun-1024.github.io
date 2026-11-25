@@ -4,7 +4,7 @@ Personal academic homepage using the stylesheet and paper layout of [AcadHomepag
 
 ## 更新论文
 
-编辑 `publications.json`。图文展示的论文由 `build.py` 中的 `order` 控制，并使用 `badge`、`figure` 和 `summary` 字段；含 `conference_award`、`award_url` 和 `conference_summary` 的论文显示在获奖会议论文区，其余论文显示在 Other Publications。新增图片放在 `assets/papers/`。然后运行：
+编辑 `publications.json`。图文展示的论文由 `build.py` 中的 `order` 控制，并使用 `badge`、`figure` 和 `summary` 字段；含 `conference_award`、`award_url` 和 `conference_summary` 的论文显示在获奖会议论文区，并使用 `badge`、`figure` 和 `figure_credit` 字段展示图片及来源，其余论文显示在 Other Publications。新增图片放在 `assets/papers/`。然后运行：
 
 ```bash
 python3 build.py

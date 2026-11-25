@@ -381,6 +381,9 @@
     "status": "published",
     "conference_award": "IEEE Best Student Paper Award",
     "award_url": "https://xxgc.hmc.edu.cn/sy/xydt/202603/t20260327_7160380_ext.shtml",
+    "badge": "CyberSciTech 2024",
+    "figure": "assets/papers/si-rg-cyberscitech2024.png",
+    "figure_credit": "Model overview from the 2024 conference presentation",
     "conference_summary": [
       "Uses positional information from images and text for radiology report generation."
     ]
@@ -927,6 +930,10 @@
     "status": "published",
     "conference_award": "IEEE Distinguished Workshop Paper Award",
     "award_url": "https://xxgc.hmc.edu.cn/xkky/kycg/202604/t20260424_7350002_ext.shtml",
+    "badge": "CyberSciTech 2025",
+    "figure": "assets/papers/ram-gnn-cyberscitech2025.png",
+    "figure_credit": "Model figure from Hangzhou Medical College",
+    "figure_credit_url": "https://xxgc.hmc.edu.cn/xkky/kycg/202604/t20260424_7350002_ext.shtml",
     "conference_summary": [
       "RAM-GNN uses retrospective attention to combine historical states for long-range epidemic forecasting.",
       "A dual-stream spatiotemporal graph network models temporal and spatial patterns in disease dynamics."
