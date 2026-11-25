@@ -56,7 +56,7 @@ def compact(p):
     extra=(' '+links(p)) if p.get('figure') else ''
     return f'<li>{anchor}{extra}. {authors_html(p["authors"])}. {venue(p)}.</li>'
 
-order={'vision':['clamp','lavic','radar'],'segmentation':['da-transunet','garden'],'privacy':['fkd-med'],'other':['gast','cognitive']}
+order={'vision':['clamp','lavic','radar'],'segmentation':['da-transunet','garden']}
 groups=[]
 heads={'vision':'🩻 Medical Vision–Language Learning','segmentation':'🩺 Medical and Plant Image Segmentation','privacy':'🔐 Federated and Privacy-Aware Learning','other':'🧠 Other Health and AI Applications'}
 for topic,names in order.items():
