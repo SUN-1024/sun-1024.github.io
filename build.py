@@ -66,7 +66,7 @@ content='''<!doctype html>
 <h1 id="publications">📝 Publications</h1><p>Selected publications are grouped by research direction. Click a figure to view it at a larger size. More work is listed below and on <a href="https://scholar.google.com/citations?user=XSfz6tUAAAAJ">Google Scholar</a>.</p><p class="author-key">† Equal contribution; * corresponding author.</p>
 ''' + '\n'.join(groups) + '''
 <h2 id="other-publications">📄 Other Publications</h2><ol class="other-publications">''' + ''.join(map(compact,other)) + '''</ol>
-<h1 id="educations">📖 Educations</h1><ul class="education-list"><li>Ph.D. in Information Science, Japan Advanced Institute of Science and Technology (JAIST).</li><li>M.Sc. in Computer and Information Sciences, Hosei University.</li><li>M.Eng. in Software Engineering, Tianjin University.</li></ul>
+<h1 id="educations">📖 Educations</h1><ul class="education-list"><li>Ph.D. in Information Science, Japan Advanced Institute of Science and Technology (JAIST).</li><li>M.Sc. in Computer and Information Sciences, Hosei University.</li><li>M.Eng. in Software Engineering, Tianjin University.</li><li>B.Eng. in Mechanical Engineering, Shanghai University of Electric Power.</li></ul>
 <h1 id="contact">✉️ Contact</h1><p>School of Information Engineering, Hangzhou Medical College, Hangzhou, China.<br>Email: <a href="mailto:sun.guanqun@hmc.edu.cn">sun.guanqun@hmc.edu.cn</a></p>
 <footer class="site-footer">© 2026 Guanqun Sun · Style based on <a href="https://github.com/RayeRen/acad-homepage.github.io">AcadHomepage</a>.</footer>
 </section></div></article></main></body></html>'''
