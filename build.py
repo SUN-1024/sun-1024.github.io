@@ -32,6 +32,20 @@ def venue(p):
         return f'<em>{e(p["venue"])}</em>, 115, 104302, 2027 (online 2026)'
     return f'<em>{e(p["venue"])}</em>, {e(p["date"][:4])}'
 
+def picture(src, alt, *, lazy=True, dimensions=None):
+    """Serve a WebP thumbnail when available; retain the original as fallback."""
+    path=Path(src)
+    thumbnail=path.parent/'thumbs'/(path.stem+'.webp')
+    source=f'<source srcset="{e(thumbnail.as_posix(),quote=True)}" type="image/webp">' if (ROOT/thumbnail).is_file() else ''
+    if dimensions is None and path.suffix.lower()=='.png':
+        with (ROOT/path).open('rb') as image:
+            header=image.read(24)
+        if header[:8]==b'\x89PNG\r\n\x1a\n':
+            dimensions=(int.from_bytes(header[16:20],'big'),int.from_bytes(header[20:24],'big'))
+    size=f' width="{dimensions[0]}" height="{dimensions[1]}"' if dimensions else ''
+    priority=' loading="lazy"' if lazy else ' fetchpriority="high"'
+    return f'<picture>{source}<img src="{e(src,quote=True)}" alt="{e(alt,quote=True)}"{size}{priority} decoding="async"></picture>'
+
 def card(p):
     title=e(p['title']); src=e(p['figure'],quote=True)
     title_html=f'<a href="https://doi.org/{e(p["doi"],quote=True)}">{title}</a>' if p['doi'] else f'<strong>{title}</strong>'
@@ -39,7 +53,8 @@ def card(p):
     cc=' · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>' if p.get('cc_by') else ''
     credit='Figure from the accepted manuscript' if p['status']=='accepted' else 'Figure from the paper'
     award=f'<p><span class="award-tag">★ {e(p["recognition"])}</span></p>' if p.get('recognition') else ''
-    return f'''<div class="paper-box"><div class="paper-box-image"><div><div class="badge">{e(p['badge'])}</div><a href="{src}" target="_blank" rel="noopener" aria-label="Open a larger figure for {title}"><img src="{src}" alt="Research figure for {title}" loading="lazy"></a><div class="figure-credit">{credit}{cc}</div></div></div><div class="paper-box-text"><p>{title_html} {links(p)}</p>{award}<p>{authors_html(p['authors'])}</p><p class="publication-venue">{venue(p)}</p><ul>{points}</ul></div></div>'''
+    image=picture(p['figure'],f'Research figure for {p["title"]}')
+    return f'''<div class="paper-box"><div class="paper-box-image"><div><div class="badge">{e(p['badge'])}</div><a href="{src}" target="_blank" rel="noopener" aria-label="Open a larger figure for {title}">{image}</a><div class="figure-credit">{credit}{cc}</div></div></div><div class="paper-box-text"><p>{title_html} {links(p)}</p>{award}<p>{authors_html(p['authors'])}</p><p class="publication-venue">{venue(p)}</p><ul>{points}</ul></div></div>'''
 
 def conference_card(p):
     title=e(p['title'])
@@ -51,7 +66,8 @@ def conference_card(p):
     if p.get('figure_credit_url'):
         credit=f'<a href="{e(p["figure_credit_url"],quote=True)}">{credit}</a>'
     points=''.join('<li>'+e(point)+'</li>' for point in p.get('conference_summary',[]))
-    return f"""<article class="paper-box conference-paper"><div class="paper-box-image"><div><div class="badge">{e(p['badge'])}</div><a href="{src}" target="_blank" rel="noopener" aria-label="Open a larger figure for {title}"><img src="{src}" alt="Model diagram for {title}" loading="lazy"></a><div class="figure-credit">{credit}</div></div></div><div class="paper-box-text"><p><a href="https://doi.org/{doi}">{title}</a> [<a href="https://doi.org/{doi}">Paper</a>]</p><p>{authors_html(p['authors'])}</p><p class="publication-venue">{venue(p)}</p><p><a class="award-tag" href="{award_url}" title="Award details from Hangzhou Medical College">★ {award} ↗</a></p><ul>{points}</ul></div></article>"""
+    image=picture(p['figure'],f'Model diagram for {p["title"]}')
+    return f"""<article class="paper-box conference-paper"><div class="paper-box-image"><div><div class="badge">{e(p['badge'])}</div><a href="{src}" target="_blank" rel="noopener" aria-label="Open a larger figure for {title}">{image}</a><div class="figure-credit">{credit}</div></div></div><div class="paper-box-text"><p><a href="https://doi.org/{doi}">{title}</a> [<a href="https://doi.org/{doi}">Paper</a>]</p><p>{authors_html(p['authors'])}</p><p class="publication-venue">{venue(p)}</p><p><a class="award-tag" href="{award_url}" title="Award details from Hangzhou Medical College">★ {award} ↗</a></p><ul>{points}</ul></div></article>"""
 
 def compact(p):
     title=e(p['title']); anchor=f'<a href="https://doi.org/{e(p["doi"],quote=True)}">{title}</a>' if p['doi'] else title
@@ -73,7 +89,7 @@ content='''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Guanqun Sun, Hangzhou Medical College: medical image analysis, vision-language learning and privacy-aware AI."><meta property="og:title" content="Guanqun Sun (孙冠群) - Homepage"><meta property="og:description" content="Research in medical image analysis, report generation and privacy-aware AI."><meta property="og:type" content="website"><link rel="canonical" href="https://sun-1024.github.io/"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/acadhomepage.css"><link rel="stylesheet" href="assets/style.css"><title>Guanqun Sun (孙冠群) - Homepage</title></head>
 <body><a class="skip-link" href="#about-me">Skip to content</a>
 <header class="masthead"><div class="masthead__inner-wrap"><div class="masthead__menu"><nav class="greedy-nav" aria-label="Main navigation"><ul class="visible-links"><li class="masthead__menu-item masthead__menu-item--lg masthead__menu-home-item"><a href="#about-me">Homepage</a></li><li class="masthead__menu-item"><a href="#about-me">About Me</a></li><li class="masthead__menu-item"><a href="#news">News</a></li><li class="masthead__menu-item"><a href="#publications">Publications</a></li><li class="masthead__menu-item"><a href="#educations">Educations</a></li><li class="masthead__menu-item"><a href="#contact">Contact</a></li></ul></nav></div></div></header>
-<main id="main"><aside class="sidebar sticky" aria-label="Researcher profile"><div class="profile_box"><div class="author__avatar"><img src="assets/portrait.jpg" alt="Guanqun Sun teaching" width="540" height="720"></div><div class="author__content"><h3 class="author__name">Guanqun Sun (孙冠群)</h3><p class="author__bio">Hangzhou Medical College<br><span lang="zh-CN">杭州医学院</span></p><p class="author__bio">Lecturer</p></div><div class="author__urls-wrapper"><ul class="author__urls social-icons"><li><span class="profile-icon" aria-hidden="true">●</span> Hangzhou, China</li><li><a href="mailto:sun.guanqun@hmc.edu.cn"><span class="profile-icon" aria-hidden="true">✉</span> Email</a></li><li><a href="https://github.com/SUN-1024"><span class="profile-icon" aria-hidden="true">◆</span> GitHub</a></li><li><a href="https://scholar.google.com/citations?user=XSfz6tUAAAAJ"><span class="profile-icon" aria-hidden="true">▣</span> Google Scholar</a></li><li><a href="https://orcid.org/0009-0008-4704-7072"><span class="profile-icon" aria-hidden="true">iD</span> ORCID</a></li></ul></div></div></aside>
+<main id="main"><aside class="sidebar sticky" aria-label="Researcher profile"><div class="profile_box"><div class="author__avatar">''' + picture('assets/portrait.jpg','Guanqun Sun teaching',lazy=False,dimensions=(540,720)) + '''</div><div class="author__content"><h3 class="author__name">Guanqun Sun (孙冠群)</h3><p class="author__bio">Hangzhou Medical College<br><span lang="zh-CN">杭州医学院</span></p><p class="author__bio">Lecturer</p></div><div class="author__urls-wrapper"><ul class="author__urls social-icons"><li><span class="profile-icon" aria-hidden="true">●</span> Hangzhou, China</li><li><a href="mailto:sun.guanqun@hmc.edu.cn"><span class="profile-icon" aria-hidden="true">✉</span> Email</a></li><li><a href="https://github.com/SUN-1024"><span class="profile-icon" aria-hidden="true">◆</span> GitHub</a></li><li><a href="https://scholar.google.com/citations?user=XSfz6tUAAAAJ"><span class="profile-icon" aria-hidden="true">▣</span> Google Scholar</a></li><li><a href="https://orcid.org/0009-0008-4704-7072"><span class="profile-icon" aria-hidden="true">iD</span> ORCID</a></li></ul></div></div></aside>
 <article class="page"><div class="page__inner-wrap"><section class="page__content"><div id="about-me" class="anchor"></div>
 <p>I am a lecturer at the School of Information Engineering, Hangzhou Medical College. I received my Ph.D. in Information Science from the Japan Advanced Institute of Science and Technology (JAIST).</p>
 <p>My research interests include medical image analysis, vision–language learning and radiology report generation, and privacy-aware machine learning. I work on models that connect medical images with clinical language, capture changes across images, and support collaborative learning. <strong>Feel free to contact me if you are interested in these topics.</strong></p>

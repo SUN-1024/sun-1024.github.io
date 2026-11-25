@@ -12,6 +12,8 @@ python3 build.py
 
 `index.html` 是生成的网页。分组和代表论文顺序在 `build.py` 的 `order` 中维护。更新简介、新闻和教育经历时，修改 `build.py` 中的相应文字并重新运行。
 
+主页优先加载 `assets/**/thumbs/` 中的 WebP 展示图；论文图片点击后仍打开原图。新增或更换图片后，安装 Pillow（`python3 -m pip install Pillow`），依次运行 `python3 build.py`、`python3 scripts/make_thumbnails.py`、`python3 build.py`，即可生成展示图并更新网页。没有展示图时网页会自动使用原图。
+
 ## 本地预览与发布
 
 在本目录运行 `python3 -m http.server 8765`，然后访问 `http://localhost:8765/`。将更改推送到 GitHub 的 `main` 分支后，GitHub Pages 会自动发布。只将打算公开的文件放入此目录。
