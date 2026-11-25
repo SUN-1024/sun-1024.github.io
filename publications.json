@@ -1,138 +1,867 @@
 [
   {
     "title": "Lesion-aware visio-linguistic context regularization for radiology report generation",
-    "authors": "Guanqun Sun; Yunbin Tu; Yingying Zhu; Liang Wan; Qun Jin; Jianhua Ma",
+    "authors": [
+      {
+        "name": "Guanqun Sun",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Yunbin Tu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Yingying Zhu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Liang Wan",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Qun Jin",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Jianhua Ma",
+        "equal": false,
+        "corresponding": false
+      }
+    ],
     "venue": "Medical Image Analysis",
     "date": "2026-09-07",
     "doi": "10.1016/j.media.2026.104302",
-    "type": "journal"
+    "type": "journal",
+    "status": "published",
+    "topic": "vision",
+    "badge": "MedIA 2027",
+    "figure": "assets/papers/lavic.png",
+    "summary": [
+      "A chest-region prior and anatomy-aware feature enhancement focus the visual encoder on clinically relevant image regions.",
+      "Retrieved medical entities and report summaries provide complementary linguistic context for radiology report generation."
+    ],
+    "code": "https://github.com/SUN-1024/LAVIC",
+    "cc_by": false
   },
   {
     "title": "RADAR: A Difference-Aware Retrieval with Organ-Level Alignment for Change Radiology Report Generation",
-    "authors": "Yizhi Pan; Guanqun Sun; Yingying Zhu; Haitao Jiang; Han Shu; Le Minh Nguyen",
+    "authors": [
+      {
+        "name": "Yizhi Pan",
+        "equal": true,
+        "corresponding": false
+      },
+      {
+        "name": "Guanqun Sun",
+        "equal": true,
+        "corresponding": true
+      },
+      {
+        "name": "Yingying Zhu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Haitao Jiang",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Han Shu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Le Minh Nguyen",
+        "equal": false,
+        "corresponding": false
+      }
+    ],
     "venue": "IEEE Transactions on Medical Imaging",
     "date": "2026-07-13",
     "doi": "10.1109/tmi.2026.3712240",
-    "type": "journal"
+    "type": "journal",
+    "status": "published",
+    "topic": "vision",
+    "badge": "IEEE TMI 2026",
+    "figure": "assets/papers/radar.png",
+    "summary": [
+      "RADAR aligns previous and current chest radiographs at the organ level to represent clinically relevant changes.",
+      "Difference-aware retrieval and structured prompts guide a language model to generate comparative radiology reports."
+    ],
+    "code": "",
+    "cc_by": false
   },
   {
     "title": "Gradient-guided boundary-aware selective scanning with multi-scale context aggregation for plant lesion segmentation",
-    "authors": "Guanqun Sun; Tianshuo Li; Yizhi Pan; Zidan Zhu; Tianhua Yang; Feihe Shao; Jia Guo; Junyi Xin",
+    "authors": [
+      {
+        "name": "Guanqun Sun",
+        "equal": true,
+        "corresponding": false
+      },
+      {
+        "name": "Tianshuo Li",
+        "equal": true,
+        "corresponding": false
+      },
+      {
+        "name": "Yizhi Pan",
+        "equal": true,
+        "corresponding": false
+      },
+      {
+        "name": "Zidan Zhu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Tianhua Yang",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Feihe Shao",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Jia Guo",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Junyi Xin",
+        "equal": false,
+        "corresponding": true
+      }
+    ],
     "venue": "Frontiers in Plant Science",
     "date": "2025-12-23",
     "doi": "10.3389/fpls.2025.1727075",
-    "type": "journal"
+    "type": "journal",
+    "status": "published",
+    "topic": "other",
+    "badge": "Front. Plant Sci. 2025",
+    "figure": "assets/papers/garden.png",
+    "summary": [
+      "GARDEN aggregates multi-scale context to represent plant lesions of different sizes.",
+      "A gradient-guided boundary predictor directs Mamba-based selective scanning towards uncertain lesion boundaries."
+    ],
+    "code": "",
+    "cc_by": true
   },
   {
     "title": "Weight-aware tasks for evaluating knowledge graph embeddings",
-    "authors": "Wei-Kun Kong; Xin Liu; Teeradaj Racharak; Guanqun Sun; Qiang Ma; Le-Minh Nguyen",
+    "authors": [
+      {
+        "name": "Wei-Kun Kong",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Xin Liu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Teeradaj Racharak",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Guanqun Sun",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Qiang Ma",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Le-Minh Nguyen",
+        "equal": false,
+        "corresponding": false
+      }
+    ],
     "venue": "Knowledge-Based Systems",
     "date": "2025-06",
     "doi": "10.1016/j.knosys.2025.113596",
-    "type": "journal"
+    "type": "journal",
+    "status": "published"
   },
   {
     "title": "A new method for identifying and evaluating depressive disorders in young people based on cognitive neurocomputing: an exploratory study",
-    "authors": "Jiakang Liu; Kai Li; Shuwu Li; Shangjun Liu; Chen Wang; Shouqiang Huang; Yuting Tu; Bo Wang; Pengpeng Zhang; Yuntian Luo; Guanqun Sun; Tong Chen",
+    "authors": [
+      {
+        "name": "Jiakang Liu",
+        "equal": true,
+        "corresponding": false
+      },
+      {
+        "name": "Kai Li",
+        "equal": true,
+        "corresponding": true
+      },
+      {
+        "name": "Shuwu Li",
+        "equal": true,
+        "corresponding": false
+      },
+      {
+        "name": "Shangjun Liu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Chen Wang",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Shouqiang Huang",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Yuting Tu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Bo Wang",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Pengpeng Zhang",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Yuntian Luo",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Guanqun Sun",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Tong Chen",
+        "equal": false,
+        "corresponding": true
+      }
+    ],
     "venue": "Frontiers in Computational Neuroscience",
     "date": "2025-02-25",
     "doi": "10.3389/fncom.2025.1555416",
-    "type": "journal"
+    "type": "journal",
+    "status": "published",
+    "topic": "other",
+    "badge": "Front. Comput. Neurosci. 2025",
+    "figure": "assets/papers/cognitive.png",
+    "summary": [
+      "A digital assessment combines eye-tracking and interaction data to examine attention, executive function, and information processing speed.",
+      "This exploratory study evaluates cognitive biomarkers in young people with depressive disorders and healthy controls."
+    ],
+    "code": "",
+    "cc_by": true
   },
   {
     "title": "A mutual inclusion mechanism for precise boundary segmentation in medical images",
-    "authors": "Yizhi Pan; Junyi Xin; Tianhua Yang; Siqi Li; Le-Minh Nguyen; Teeradaj Racharak; Kai Li; Guanqun Sun",
+    "authors": [
+      {
+        "name": "Yizhi Pan",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Junyi Xin",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Tianhua Yang",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Siqi Li",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Le-Minh Nguyen",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Teeradaj Racharak",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Kai Li",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Guanqun Sun",
+        "equal": false,
+        "corresponding": true
+      }
+    ],
     "venue": "Frontiers in Bioengineering and Biotechnology",
     "date": "2024-12-24",
     "doi": "10.3389/fbioe.2024.1504249",
-    "type": "journal"
+    "type": "journal",
+    "status": "published",
+    "topic": "segmentation",
+    "badge": "Front. Bioeng. Biotechnol. 2024",
+    "figure": "assets/papers/mipc-net.png",
+    "summary": [
+      "MIPC-Net couples position and channel attention to focus on medical image boundaries.",
+      "A skip-residue connection combines encoder and decoder features while preserving information useful for segmentation."
+    ],
+    "code": "https://github.com/yizhipan/MIPC-Net",
+    "cc_by": true
   },
   {
     "title": "Sequence-Integrated Radiology Report Generation Leveraging Positional Encoding for Text and Images",
-    "authors": "Yizhi Pan; Kai Li; Jinghao Wu; Han Shu; Feihe Shao; Junyi Xin; Guanqun Sun",
+    "authors": [
+      {
+        "name": "Yizhi Pan",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Kai Li",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Jinghao Wu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Han Shu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Feihe Shao",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Junyi Xin",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Guanqun Sun",
+        "equal": false,
+        "corresponding": true
+      }
+    ],
     "venue": "2024 IEEE Cyber Science and Technology Congress (CyberSciTech)",
     "date": "2024-11-05",
     "doi": "10.1109/cyberscitech64112.2024.00085",
-    "type": "conference"
+    "type": "conference",
+    "status": "published"
   },
   {
     "title": "Robust detection of infectious disease, autoimmunity, and cancer from the paratope networks of adaptive immune receptors",
-    "authors": "Zichang Xu; Hendra S Ismanto; Dianita S Saputri; Soichiro Haruna; Guanqun Sun; Jan Wilamowski; Shunsuke Teraguchi; Ayan Sengupta; Songling Li; Daron M Standley",
+    "authors": [
+      {
+        "name": "Zichang Xu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Hendra S Ismanto",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Dianita S Saputri",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Soichiro Haruna",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Guanqun Sun",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Jan Wilamowski",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Shunsuke Teraguchi",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Ayan Sengupta",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Songling Li",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Daron M Standley",
+        "equal": false,
+        "corresponding": true
+      }
+    ],
     "venue": "Briefings in Bioinformatics",
     "date": "2024-09-03",
     "doi": "10.1093/bib/bbae431",
-    "type": "journal"
+    "type": "journal",
+    "status": "published"
   },
   {
     "title": "Modeling epidemic dynamics using Graph Attention based Spatial Temporal networks",
-    "authors": "Xiaofeng Zhu; Yi Zhang; Haoru Ying; Huanning Chi; Guanqun Sun; Lingxia Zeng",
+    "authors": [
+      {
+        "name": "Xiaofeng Zhu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Yi Zhang",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Haoru Ying",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Huanning Chi",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Guanqun Sun",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Lingxia Zeng",
+        "equal": false,
+        "corresponding": true
+      }
+    ],
     "venue": "PLOS ONE",
     "date": "2024-07-15",
     "doi": "10.1371/journal.pone.0307159",
-    "type": "journal"
+    "type": "journal",
+    "status": "published",
+    "topic": "other",
+    "badge": "PLOS ONE 2024",
+    "figure": "assets/papers/gast.png",
+    "summary": [
+      "GAST combines temporal convolution, recurrent modelling, and graph attention to capture spatial and temporal patterns.",
+      "The model is evaluated on influenza and COVID-19 data for short-term epidemic forecasting."
+    ],
+    "code": "",
+    "cc_by": true
   },
   {
     "title": "DA-TransUNet: integrating spatial and channel dual attention with transformer U-net for medical image segmentation",
-    "authors": "Guanqun Sun; Yizhi Pan; Weikun Kong; Zichang Xu; Jianhua Ma; Teeradaj Racharak; Le-Minh Nguyen; Junyi Xin",
+    "authors": [
+      {
+        "name": "Guanqun Sun",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Yizhi Pan",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Weikun Kong",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Zichang Xu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Jianhua Ma",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Teeradaj Racharak",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Le-Minh Nguyen",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Junyi Xin",
+        "equal": false,
+        "corresponding": true
+      }
+    ],
     "venue": "Frontiers in Bioengineering and Biotechnology",
     "date": "2024-05-16",
     "doi": "10.3389/fbioe.2024.1398237",
-    "type": "journal"
+    "type": "journal",
+    "status": "published",
+    "topic": "segmentation",
+    "badge": "Front. Bioeng. Biotechnol. 2024",
+    "figure": "assets/papers/da-transunet.png",
+    "summary": [
+      "DA-TransUNet integrates Transformer-based representation learning with a U-Net segmentation architecture.",
+      "Dual attention in the skip connections models spatial and channel features to refine medical image segmentation."
+    ],
+    "code": "https://github.com/SUN-1024/DA-TransUnet",
+    "cc_by": true
   },
   {
     "title": "FKD-Med: Privacy-Aware, Communication-Optimized Medical Image Segmentation via Federated Learning and Model Lightweighting Through Knowledge Distillation",
-    "authors": "Guanqun Sun; Han Shu; Feihe Shao; Teeradaj Racharak; Weikun Kong; Yizhi Pan; Jingjing Dong; Shuang Wang; Le-Minh Nguyen; Junyi Xin",
+    "authors": [
+      {
+        "name": "Guanqun Sun",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Han Shu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Feihe Shao",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Teeradaj Racharak",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Weikun Kong",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Yizhi Pan",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Jingjing Dong",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Shuang Wang",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Le-Minh Nguyen",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Junyi Xin",
+        "equal": false,
+        "corresponding": true
+      }
+    ],
     "venue": "IEEE Access",
     "date": "2024-03-01",
     "doi": "10.1109/access.2024.3372394",
-    "type": "journal"
+    "type": "journal",
+    "status": "published",
+    "topic": "privacy",
+    "badge": "IEEE Access 2024",
+    "figure": "assets/papers/fkd-med.png",
+    "summary": [
+      "FKD-Med brings together federated learning and knowledge distillation for medical image segmentation.",
+      "It transfers knowledge from larger teacher models to compact student models to support communication-efficient collaboration."
+    ],
+    "code": "https://github.com/SUN-1024/FKD-Med",
+    "cc_by": false
   },
   {
     "title": "WeExt: A Framework of Extending Deterministic Knowledge Graph Embedding Models for Embedding Weighted Knowledge Graphs",
-    "authors": "Kong Wei Kun; Xin Liu; Teeradaj Racharak; Guanqun Sun; Jianan Chen; Qiang Ma; Le-Minh Nguyen",
+    "authors": [
+      {
+        "name": "Kong Wei Kun",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Xin Liu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Teeradaj Racharak",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Guanqun Sun",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Jianan Chen",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Qiang Ma",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Le-Minh Nguyen",
+        "equal": false,
+        "corresponding": true
+      }
+    ],
     "venue": "IEEE Access",
     "date": "2023-05-15",
     "doi": "10.1109/access.2023.3276319",
-    "type": "journal"
+    "type": "journal",
+    "status": "published"
   },
   {
     "title": "MLDA-Unet:Multi Level Dual Attention Unet for Polyp Segmentation",
-    "authors": "Yuming Cai; Haotian Li; Junyi Xin; Guanqun Sun",
+    "authors": [
+      {
+        "name": "Yuming Cai",
+        "equal": true,
+        "corresponding": false
+      },
+      {
+        "name": "Haotian Li",
+        "equal": true,
+        "corresponding": false
+      },
+      {
+        "name": "Junyi Xin",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Guanqun Sun",
+        "equal": false,
+        "corresponding": true
+      }
+    ],
     "venue": "2022 16th ICME International Conference on Complex Medical Engineering (CME)",
     "date": "2022-11-04",
     "doi": "10.1109/cme55444.2022.10063321",
-    "type": "conference"
+    "type": "conference",
+    "status": "published",
+    "topic": "segmentation",
+    "badge": "IEEE CME 2022",
+    "figure": "assets/papers/mlda-unet.png",
+    "summary": [
+      "MLDA-UNet incorporates dual attention into a U-Net for polyp segmentation.",
+      "The study compares attention blocks placed at different network levels to examine their effects on segmentation."
+    ],
+    "code": "",
+    "cc_by": false
   },
   {
     "title": "Learn from Each Other: Comparison and Fusion for Medical Segmentation Loss",
-    "authors": "Junyi Xin; Guanqun Sun",
+    "authors": [
+      {
+        "name": "Junyi Xin",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Guanqun Sun",
+        "equal": false,
+        "corresponding": true
+      }
+    ],
     "venue": "2021 7th International Conference on Computer and Communications (ICCC)",
     "date": "2021-12-10",
     "doi": "10.1109/iccc54389.2021.9674501",
-    "type": "conference"
+    "type": "conference",
+    "status": "published"
   },
   {
     "title": "A personal character model of affect, behavior and cognition for individual-like research",
-    "authors": "Ao Guo; Jianhua Ma; Guanqun Sun; Shunxiang Tan",
+    "authors": [
+      {
+        "name": "Ao Guo",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Jianhua Ma",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Guanqun Sun",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Shunxiang Tan",
+        "equal": false,
+        "corresponding": false
+      }
+    ],
     "venue": "Computers & Electrical Engineering",
     "date": "2019-12-27",
     "doi": "10.1016/j.compeleceng.2019.106544",
-    "type": "journal"
+    "type": "journal",
+    "status": "published"
   },
   {
     "title": "From affect, behavior, and cognition to personality: an integrated personal character model for individual-like intelligent artifacts",
-    "authors": "Ao Guo; Jianhua Ma; Shunxiang Tan; Guanqun Sun",
+    "authors": [
+      {
+        "name": "Ao Guo",
+        "equal": false,
+        "corresponding": true
+      },
+      {
+        "name": "Jianhua Ma",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Shunxiang Tan",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Guanqun Sun",
+        "equal": false,
+        "corresponding": false
+      }
+    ],
     "venue": "World Wide Web",
     "date": "2019-08-31",
     "doi": "10.1007/s11280-019-00713-w",
-    "type": "journal"
+    "type": "journal",
+    "status": "published"
   },
   {
     "title": "Personal Trait Analysis Using Word2vec Based on User-Generated Text",
-    "authors": "Guanqun Sun; Ao Guo; Jianhua Ma; Jianguo Wei",
+    "authors": [
+      {
+        "name": "Guanqun Sun",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Ao Guo",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Jianhua Ma",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Jianguo Wei",
+        "equal": false,
+        "corresponding": false
+      }
+    ],
     "venue": "2019 IEEE International Conference on Ubiquitous Intelligence and Computing (UIC)",
     "date": "2019-08",
     "doi": "10.1109/smartworld-uic-atc-scalcom-iop-sci.2019.00213",
-    "type": "conference"
+    "type": "conference",
+    "status": "published"
+  },
+  {
+    "title": "Context-Predictive Representation Learning with Prototype-to-Semantic Memory Retrieval for Terminology-Constrained Surgical Report Generation",
+    "authors": [
+      {
+        "name": "Han Shu",
+        "equal": true,
+        "corresponding": false
+      },
+      {
+        "name": "Guanqun Sun",
+        "equal": true,
+        "corresponding": true
+      },
+      {
+        "name": "Qi Yuan",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Mengya Xu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Yizhi Pan",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Zhikun Liu",
+        "equal": false,
+        "corresponding": false
+      },
+      {
+        "name": "Le-Minh Nguyen",
+        "equal": false,
+        "corresponding": false
+      }
+    ],
+    "venue": "Medical Image Analysis",
+    "date": "2026-11-22",
+    "doi": "",
+    "type": "journal",
+    "status": "accepted",
+    "topic": "vision",
+    "badge": "MedIA · Accepted 2026",
+    "figure": "assets/papers/clamp.png",
+    "summary": [
+      "CLAMP learns interaction-aware surgical visual representations through context-predictive pre-training.",
+      "Prototype-to-semantic retrieval and a memory-guided projector connect visual evidence with clinical terminology for report generation."
+    ],
+    "code": "",
+    "cc_by": false
   }
 ]

@@ -1,81 +1,74 @@
 #!/usr/bin/env python3
-"""Build the static homepage from publications.json. No dependencies required."""
+"""Generate the AcadHomepage-style static site from publications.json."""
+from pathlib import Path
 import html
 import json
-from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-papers = json.loads((ROOT / 'publications.json').read_text(encoding='utf-8'))
-esc = html.escape
-featured_dois = [
-    '10.1016/j.media.2026.104302',
-    '10.1109/tmi.2026.3712240',
-    '10.3389/fbioe.2024.1398237',
-    '10.1109/access.2024.3372394',
-    '10.3389/fbioe.2024.1504249',
-]
-code_links = {
-    '10.1016/j.media.2026.104302':'https://github.com/SUN-1024/LAVIC',
-    '10.3389/fbioe.2024.1398237':'https://github.com/SUN-1024/DA-TransUnet',
-    '10.1109/access.2024.3372394':'https://github.com/SUN-1024/FKD-Med',
-    '10.3389/fbioe.2024.1504249':'https://github.com/SUN-1024/MIPC-Net',
-}
+publications = json.loads((ROOT / 'publications.json').read_text(encoding='utf-8'))
+e = html.escape
 
-def publication(p):
-    doi = p['doi'].lower()
-    authors=[]
-    for raw in p['authors'].split(';'):
-        name=raw.strip()
-        text=esc(name)
-        authors.append(f'<strong>{text}</strong>' if name.lower()=='guanqun sun' else text)
-    year=p['date'][:4]
-    pubtype='Journal' if p['type']=='journal' else 'Conference'
-    year_note=' · Online 2026; volume year 2027' if doi=='10.1016/j.media.2026.104302' else ''
-    links=f'<a href="https://doi.org/{esc(p["doi"], quote=True)}">DOI ↗</a>'
-    if doi in code_links: links+=f'<a href="{code_links[doi]}">Code ↗</a>'
-    if doi=='10.1016/j.media.2026.104302': links+='<a href="https://doi.org/10.1016/j.media.2026.104383">Correction ↗</a>'
-    return f'''<article class="publication"><div class="pub-meta"><div class="pub-year">{esc(year)}</div><div class="pub-type">{pubtype}</div></div><div><h3 class="pub-title">{esc(p['title'])}</h3><p class="pub-authors">{', '.join(authors)}</p><p class="pub-venue"><em>{esc(p['venue'])}</em>{year_note}</p><div class="pub-links">{links}</div></div></article>'''
+def authors_html(authors):
+    rendered=[]
+    for a in authors:
+        text=e(a['name'])
+        if a['name'].casefold() == 'guanqun sun':
+            text=f'<strong>{text}</strong>'
+        marks=('†' if a.get('equal') else '') + ('*' if a.get('corresponding') else '')
+        rendered.append(text + (f'<sup>{marks}</sup>' if marks else ''))
+    return ', '.join(rendered)
 
-by_doi={p['doi'].lower():p for p in papers}
-featured=[by_doi[d] for d in featured_dois if d in by_doi]
-other=[p for p in papers if p['doi'].lower() not in featured_dois]
-journals=[p for p in other if p['type']=='journal']
-conferences=[p for p in other if p['type']=='conference']
-selected_html='\n'.join(map(publication,featured))
-more_html='<h3 class="subheading">Journal publications</h3>'+''.join(map(publication,journals))+'<h3 class="subheading">Conference publications</h3>'+''.join(map(publication,conferences))
+def links(p):
+    parts=[]
+    if p['doi']:
+        parts.append(f'<a href="https://doi.org/{e(p["doi"], quote=True)}">Paper</a>')
+    if p.get('code'):
+        parts.append(f'<a href="{e(p["code"], quote=True)}">Code</a>')
+    if p['doi'].lower() == '10.1016/j.media.2026.104302':
+        parts.append('<a href="https://doi.org/10.1016/j.media.2026.104383">Correction</a>')
+    return ' '.join('['+part+']' for part in parts)
 
-page=f'''<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Guanqun Sun is a lecturer at Hangzhou Medical College. His research includes medical image analysis, vision-language learning and privacy-aware AI.">
-<meta name="theme-color" content="#fbfcfb">
-<meta property="og:title" content="Guanqun Sun | Academic Homepage">
-<meta property="og:description" content="Medical image analysis, vision-language learning and privacy-aware AI.">
-<meta property="og:type" content="website">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css">
-<title>Guanqun Sun | Academic Homepage</title>
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="masthead"><div class="mast-inner"><a class="brand" href="#top"><span class="mark">GS</span><span>Guanqun Sun</span></a><nav aria-label="Main navigation"><a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#education">Education</a><a href="#contact">Contact</a></nav></div></header>
-<div class="page" id="top">
-<aside class="profile" aria-label="Researcher profile">
-<div class="portrait-wrap"><img class="portrait" src="assets/portrait.jpg" alt="Portrait of Guanqun Sun" width="540" height="720"></div>
-<div class="identity"><h2>Guanqun Sun <span class="cn-name">孙冠群</span></h2><p class="role">Lecturer</p><p class="affil">School of Information Engineering<br>Hangzhou Medical College</p><p class="location">Hangzhou, China</p></div>
-<div class="profile-links"><a href="mailto:sun.guanqun@hmc.edu.cn"><span class="link-icon">@</span> Email</a><a href="https://scholar.google.com/citations?user=XSfz6tUAAAAJ"><span class="link-icon">◈</span> Google Scholar ↗</a><a href="https://orcid.org/0009-0008-4704-7072"><span class="link-icon">iD</span> ORCID ↗</a><a href="https://github.com/SUN-1024"><span class="link-icon">⌘</span> GitHub ↗</a></div>
-</aside>
-<main class="main" id="main">
-<section class="hero" id="about"><div class="eyebrow">Researcher &nbsp;·&nbsp; Educator &nbsp;·&nbsp; Hangzhou, China</div><h1>Medical images,<br><em>more meaningful insights.</em></h1><p class="intro">I am a lecturer at the School of Information Engineering, Hangzhou Medical College. I received my Ph.D. in Information Science from the Japan Advanced Institute of Science and Technology (JAIST). My research brings together medical image analysis, vision–language learning, and privacy-aware artificial intelligence.</p><p class="intro" lang="zh-CN">我从事医学图像分析、医学影像与文本多模态学习，以及隐私保护人工智能研究。</p><div class="hero-actions"><a class="button" href="#publications">Explore my research <span aria-hidden="true">↓</span></a><a class="textlink" href="mailto:sun.guanqun@hmc.edu.cn">Get in touch ↗</a></div></section>
-<section class="section" id="research"><div class="section-head"><div class="section-title"><span class="section-kicker">01 / Research</span><h2>Research interests</h2></div><span class="section-note" lang="zh-CN">研究方向</span></div><div class="research-grid"><article class="interest"><span class="interest-number">01</span><h3>Medical image analysis</h3><p>Image segmentation, boundary modelling, and chest imaging.</p></article><article class="interest"><span class="interest-number">02</span><h3>Vision–language learning</h3><p>Radiology report generation and longitudinal image understanding.</p></article><article class="interest"><span class="interest-number">03</span><h3>Privacy-aware AI</h3><p>Federated learning and knowledge distillation for medical imaging.</p></article></div></section>
-<section class="section" id="news"><div class="section-head"><div class="section-title"><span class="section-kicker">02 / Updates</span><h2>Recent highlights</h2></div><span class="section-note" lang="zh-CN">近期成果</span></div><ul class="news"><li><time datetime="2026-09">2026.09</time><p>Our work on lesion-aware radiology report generation was published online in <em>Medical Image Analysis</em>. <a href="https://doi.org/10.1016/j.media.2026.104302">Read the paper ↗</a></p></li><li><time datetime="2026-07">2026.07</time><p>Our work on change radiology report generation was published online in <em>IEEE Transactions on Medical Imaging</em>. <a href="https://doi.org/10.1109/tmi.2026.3712240">Read the paper ↗</a></p></li></ul></section>
-<section class="section" id="publications"><div class="section-head"><div class="section-title"><span class="section-kicker">03 / Publications</span><h2>Selected publications</h2></div><span class="section-note" lang="zh-CN">代表性论文</span></div><div class="pubs">{selected_html}</div><details class="more"><summary>View more publications</summary><div class="pubs">{more_html}</div></details></section>
-<section class="section" id="education"><div class="section-head"><div class="section-title"><span class="section-kicker">04 / Education</span><h2>Education</h2></div><span class="section-note" lang="zh-CN">教育经历（节选）</span></div><div class="education"><div class="edu-row"><span class="edu-date">2021 — 2024</span><div><h3>Japan Advanced Institute of Science and Technology</h3><p>Ph.D. in Information Science</p></div></div><div class="edu-row"><span class="edu-date">2017 — 2019</span><div><h3>Hosei University</h3><p>M.Sc. in Computer and Information Sciences</p></div></div><div class="edu-row"><span class="edu-date">2017 — 2020</span><div><h3>Tianjin University</h3><p>M.Eng. in Software Engineering</p></div></div></div></section>
-<section class="section" id="contact"><div class="section-head"><div class="section-title"><span class="section-kicker">05 / Contact</span><h2>Let’s connect</h2></div><span class="section-note" lang="zh-CN">联系我</span></div><div class="contact-box"><p>For research discussions and collaborations:<br><a href="mailto:sun.guanqun@hmc.edu.cn">sun.guanqun@hmc.edu.cn</a></p><a class="button" href="mailto:sun.guanqun@hmc.edu.cn">Send an email ↗</a></div></section>
-<footer class="footer">© 2026 Guanqun Sun &nbsp;·&nbsp; Hangzhou Medical College</footer>
-</main></div>
-</body></html>'''
-(ROOT/'index.html').write_text(page,encoding='utf-8')
-print(f'Built index.html: {len(featured)} selected, {len(other)} additional publications')
+def venue(p):
+    if p['status']=='accepted': return f'<em>{e(p["venue"])}</em> · Accepted, 2026'
+    if p['doi'].lower()=='10.1016/j.media.2026.104302':
+        return f'<em>{e(p["venue"])}</em>, 115, 104302, 2027 (online 2026)'
+    return f'<em>{e(p["venue"])}</em>, {e(p["date"][:4])}'
+
+def card(p):
+    title=e(p['title']); src=e(p['figure'],quote=True)
+    title_html=f'<a href="https://doi.org/{e(p["doi"],quote=True)}">{title}</a>' if p['doi'] else f'<strong>{title}</strong>'
+    points=''.join('<li>'+e(x)+'</li>' for x in p['summary'])
+    cc=' · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>' if p.get('cc_by') else ''
+    credit='Figure from the accepted manuscript' if p['status']=='accepted' else 'Figure from the paper'
+    return f'''<div class="paper-box"><div class="paper-box-image"><div><div class="badge">{e(p['badge'])}</div><a href="{src}" target="_blank" rel="noopener" aria-label="Open a larger figure for {title}"><img src="{src}" alt="Research figure for {title}" loading="lazy"></a><div class="figure-credit">{credit}{cc}</div></div></div><div class="paper-box-text"><p>{title_html} {links(p)}</p><p>{authors_html(p['authors'])}</p><p class="publication-venue">{venue(p)}</p><ul>{points}</ul></div></div>'''
+
+def compact(p):
+    title=e(p['title']); anchor=f'<a href="https://doi.org/{e(p["doi"],quote=True)}">{title}</a>' if p['doi'] else title
+    return f'<li>{anchor}. {authors_html(p["authors"])}. {venue(p)}.</li>'
+
+order={'vision':['clamp','lavic','radar'],'segmentation':['da-transunet','mipc-net','mlda-unet'],'privacy':['fkd-med'],'other':['garden','gast','cognitive']}
+groups=[]
+heads={'vision':'🩻 Medical Vision–Language Learning','segmentation':'🩺 Medical Image Segmentation','privacy':'🔐 Federated and Privacy-Aware Learning','other':'🌿 Health and Other Imaging Applications'}
+for topic,names in order.items():
+    entries=[next(p for p in publications if p.get('figure','').endswith('/'+name+'.png')) for name in names]
+    groups.append(f'<h2>{heads[topic]}</h2>'+''.join(card(p) for p in entries))
+other=[p for p in publications if not p.get('figure')]
+
+content='''<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Guanqun Sun, Hangzhou Medical College: medical image analysis, vision-language learning and privacy-aware AI."><meta property="og:title" content="Guanqun Sun (孙冠群) - Homepage"><meta property="og:description" content="Research in medical image analysis, report generation and privacy-aware AI."><meta property="og:type" content="website"><link rel="canonical" href="https://sun-1024.github.io/"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/acadhomepage.css"><link rel="stylesheet" href="assets/style.css"><title>Guanqun Sun (孙冠群) - Homepage</title></head>
+<body><a class="skip-link" href="#about-me">Skip to content</a>
+<header class="masthead"><div class="masthead__inner-wrap"><div class="masthead__menu"><nav class="greedy-nav" aria-label="Main navigation"><ul class="visible-links"><li class="masthead__menu-item masthead__menu-item--lg masthead__menu-home-item"><a href="#about-me">Homepage</a></li><li class="masthead__menu-item"><a href="#about-me">About Me</a></li><li class="masthead__menu-item"><a href="#news">News</a></li><li class="masthead__menu-item"><a href="#publications">Publications</a></li><li class="masthead__menu-item"><a href="#educations">Educations</a></li><li class="masthead__menu-item"><a href="#contact">Contact</a></li></ul></nav></div></div></header>
+<main id="main"><aside class="sidebar sticky" aria-label="Researcher profile"><div class="profile_box"><div class="author__avatar"><img src="assets/portrait.jpg" alt="Guanqun Sun teaching" width="540" height="720"></div><div class="author__content"><h3 class="author__name">Guanqun Sun (孙冠群)</h3><p class="author__bio">Hangzhou Medical College</p><p class="author__bio">Lecturer</p></div><div class="author__urls-wrapper"><ul class="author__urls social-icons"><li><span class="profile-icon" aria-hidden="true">●</span> Hangzhou, China</li><li><a href="mailto:sun.guanqun@hmc.edu.cn"><span class="profile-icon" aria-hidden="true">✉</span> Email</a></li><li><a href="https://github.com/SUN-1024"><span class="profile-icon" aria-hidden="true">◆</span> GitHub</a></li><li><a href="https://scholar.google.com/citations?user=XSfz6tUAAAAJ"><span class="profile-icon" aria-hidden="true">▣</span> Google Scholar</a></li><li><a href="https://orcid.org/0009-0008-4704-7072"><span class="profile-icon" aria-hidden="true">iD</span> ORCID</a></li></ul></div></div></aside>
+<article class="page"><div class="page__inner-wrap"><section class="page__content"><div id="about-me" class="anchor"></div>
+<p>I am a lecturer at the School of Information Engineering, Hangzhou Medical College. I received my Ph.D. in Information Science from the Japan Advanced Institute of Science and Technology (JAIST).</p>
+<p>My research interests include medical image analysis, vision–language learning and radiology report generation, and privacy-aware machine learning. I work on models that connect medical images with clinical language, capture changes across images, and support collaborative learning. <strong>Feel free to contact me if you are interested in these topics.</strong></p>
+<h1 id="news">🔥 News</h1><ul><li><strong>2026.11:</strong> Our paper on context-predictive representation learning for surgical report generation was accepted by <em>Medical Image Analysis</em>.</li><li><strong>2026.09:</strong> Our paper on lesion-aware radiology report generation was published online in <em>Medical Image Analysis</em>. [<a href="https://doi.org/10.1016/j.media.2026.104302">Paper</a>]</li><li><strong>2026.07:</strong> Our paper on change radiology report generation was published online in <em>IEEE Transactions on Medical Imaging</em>. [<a href="https://doi.org/10.1109/tmi.2026.3712240">Paper</a>]</li></ul>
+<h1 id="publications">📝 Publications</h1><p>Selected publications are grouped by research direction. Click a figure to view it at a larger size. More work is listed below and on <a href="https://scholar.google.com/citations?user=XSfz6tUAAAAJ">Google Scholar</a>.</p><p class="author-key">† Equal contribution; * corresponding author.</p>
+''' + '\n'.join(groups) + '''
+<h2 id="other-publications">📄 Other Publications</h2><ol class="other-publications">''' + ''.join(map(compact,other)) + '''</ol>
+<h1 id="educations">📖 Educations</h1><ul class="education-list"><li>Ph.D. in Information Science, Japan Advanced Institute of Science and Technology (JAIST).</li><li>M.Sc. in Computer and Information Sciences, Hosei University.</li><li>M.Eng. in Software Engineering, Tianjin University.</li></ul>
+<h1 id="contact">✉️ Contact</h1><p>School of Information Engineering, Hangzhou Medical College, Hangzhou, China.<br>Email: <a href="mailto:sun.guanqun@hmc.edu.cn">sun.guanqun@hmc.edu.cn</a></p>
+<footer class="site-footer">© 2026 Guanqun Sun · Style based on <a href="https://github.com/RayeRen/acad-homepage.github.io">AcadHomepage</a>.</footer>
+</section></div></article></main></body></html>'''
+(ROOT/'index.html').write_text(content,encoding='utf-8')
+print(f'Built homepage: {len(publications)} papers, {sum(bool(p.get("figure")) for p in publications)} illustrated, {len(other)} additional')

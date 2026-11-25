@@ -1,25 +1,17 @@
 # Guanqun Sun · Academic Homepage
 
-A static academic homepage designed for GitHub Pages.
+Personal academic homepage using the stylesheet and paper layout of [AcadHomepage](https://github.com/RayeRen/acad-homepage.github.io). The template license is in `LICENSE.acadhomepage`.
 
 ## 更新论文
 
-编辑 `publications.json`，新增或修改论文条目，然后运行：
+编辑 `publications.json`。图文展示的论文有 `topic`、`badge`、`figure` 和 `summary` 字段；其余论文显示在 Other Publications。新增图片放在 `assets/papers/`。然后运行：
 
 ```bash
 python3 build.py
 ```
 
-生成的 `index.html` 是发布使用的网页。代表作的顺序和代码链接在 `build.py` 开头修改。修改其他简介、教育经历和联系信息，也可直接编辑 `build.py` 对应内容，之后重新运行。
+`index.html` 是生成的网页。分组和代表论文顺序在 `build.py` 的 `order` 中维护。更新简介、新闻和教育经历时，修改 `build.py` 中的相应文字并重新运行。
 
-## 更新头像
+## 本地预览与发布
 
-用新的照片替换 `assets/portrait.jpg`。建议移除照片元数据后上传。
-
-## 本地预览
-
-在本目录运行 `python3 -m http.server 8765`，然后打开 `http://localhost:8765/`。页面不需要安装依赖。
-
-## 发布
-
-推送 `main` 分支后，GitHub Pages 会自动更新。请只将打算公开的文件放入此目录。
+在本目录运行 `python3 -m http.server 8765`，然后访问 `http://localhost:8765/`。将更改推送到 GitHub 的 `main` 分支后，GitHub Pages 会自动发布。只将打算公开的文件放入此目录。
